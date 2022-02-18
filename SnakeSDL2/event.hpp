@@ -10,5 +10,5 @@ private:
 	SDL_Rect exitR;
 public:
 	eventRequests(SDL_Rect startR, SDL_Rect exitR);
-	void eventMenu();
+	int eventMenu();
 };

@@ -10,9 +10,10 @@ int main(int argc, char* args[])
 
 
 	bool isOpen = true;
-	TTF_Font* font = TTF_OpenFont("D:\\Programmation\\C++\\Projets\\switch\\sigpatch-downloader\\romfs\\data\\BerlinSansFB.ttf", 30);
+	TTF_Font* font = TTF_OpenFont("C:\\Windows\\Fonts\\HOOG0555.TTF", 30);
 	SDL_Window* pWindow = SDL_CreateWindow("snake", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 500, 500, SDL_WINDOW_RESIZABLE);
 	SDL_Renderer* pRenderer = SDL_CreateRenderer(pWindow, -1, 0);
+	SDL_SetRenderDrawBlendMode(pRenderer, SDL_BLENDMODE_BLEND);
 	menuRequests menu1(font, pRenderer);
 
 	while (isOpen)

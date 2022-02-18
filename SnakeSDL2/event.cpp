@@ -12,10 +12,9 @@ bool IsInRectangle(int x, int y, const SDL_Rect& rect)
 		(y > rect.y) && (y <= rect.y + rect.h);
 }
 
-
 SDL_Event event;
 
-void eventRequests::eventMenu()
+int eventRequests::eventMenu()	//return 2 = start the game.
 {
 	if (SDL_PollEvent(&event))
 	{
@@ -27,6 +26,7 @@ void eventRequests::eventMenu()
 		if (event.type == SDL_MOUSEBUTTONUP and IsInRectangle(event.button.x, event.button.y, startR))
 		{
 			std::cout << "1\n";
+			return 2;
 		}
 	}
 }

@@ -13,4 +13,5 @@ public:
 	utilsRequests(TTF_Font* font, SDL_Renderer* renderer);
 
 	SDL_Rect printStringCenter(std::string text, int y, int addToX, bool printRect);
+	void printRect(int x, int y, int w, int h, SDL_Color color, bool fill);
 }; 

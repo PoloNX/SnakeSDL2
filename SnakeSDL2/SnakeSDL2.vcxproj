@@ -146,6 +146,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="event.cpp" />
+    <ClCompile Include="game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="menu.cpp" />
     <ClCompile Include="utils.cpp" />
@@ -155,6 +156,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="event.hpp" />
+    <ClInclude Include="game.hpp" />
     <ClInclude Include="menu.hpp" />
     <ClInclude Include="utils.hpp" />
   </ItemGroup>
