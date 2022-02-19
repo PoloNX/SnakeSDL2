@@ -1,5 +1,7 @@
 #include "game.hpp"
 #include "utils.hpp"
+#include "event.hpp"
+#include <iostream>
 
 gameRequests::gameRequests(SDL_Renderer* renderer, TTF_Font* font) {
 	this->renderer = renderer;
@@ -26,10 +28,12 @@ void gameRequests::printGrid()
 	}
 }
 
+int x = 50 * 2;
+int y = 50 * 4;
+
+
 void gameRequests::printSnake()
 {
-
-
 	while (isOpen)
 	{
 		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
@@ -41,7 +45,24 @@ void gameRequests::printSnake()
 		utils2.printRect(25, 476, 450, 447, SDL_Color{ 0, 0, 0, 255 }, true);
 		utils2.printStringCenter("points : ", 3, 0, false);
 
+		eventRequests event2;
 
+		int direction = event2.eventSnake(0);
+
+		if (direction == 1)
+			x += 50;
+		if (direction == 2)
+			x -= 50;
+		if (direction == 3)
+			y -= 50;
+		if (direction == 4)
+			y += 50;
+
+		std::cout << direction << std::endl;
+
+		SDL_Delay(100);
+
+		utils2.printRect(26+x, 26+y, 48, 48, SDL_Color{ 0, 255, 0, 255 }, true); //print the snake
 		SDL_RenderPresent(renderer);
 	}
 }

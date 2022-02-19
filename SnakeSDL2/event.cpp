@@ -1,9 +1,8 @@
 #include "event.hpp"
 #include <iostream>
 
-eventRequests::eventRequests(SDL_Rect startR, SDL_Rect exitR) {
-	this->startR = startR;
-	this->exitR = exitR;
+eventRequests::eventRequests() {
+
 }
 
 bool IsInRectangle(int x, int y, const SDL_Rect& rect)
@@ -14,7 +13,7 @@ bool IsInRectangle(int x, int y, const SDL_Rect& rect)
 
 SDL_Event event;
 
-int eventRequests::eventMenu()	//return 2 = start the game.
+int eventRequests::eventMenu(SDL_Rect startR, SDL_Rect exitR)	//return 2 = start the game.
 {
 	if (SDL_PollEvent(&event))
 	{
@@ -27,6 +26,42 @@ int eventRequests::eventMenu()	//return 2 = start the game.
 		{
 			std::cout << "1\n";
 			return 2;
+		}
+	}
+}
+
+int eventRequests::eventSnake(int direction)	//return 1 = right, 2 = left, 3 = up, 4 = down
+{
+	if (SDL_PollEvent(&event))
+	{
+		if (event.type == SDL_QUIT) {
+			SDL_Quit();
+		}
+		switch (event.type) {
+
+		case SDL_KEYDOWN:
+			if ((event.key.keysym.sym == SDLK_RIGHT) or direction == 1)
+			{
+				return 1;
+			}
+
+			else if ((event.key.keysym.sym == SDLK_LEFT) or direction == 2)
+			{
+				return 2;
+			}
+
+			else if ((event.key.keysym.sym == SDLK_UP) or direction == 3)
+			{
+				return 3;
+			}
+
+			else if ((event.key.keysym.sym == SDLK_DOWN) or direction == 4)
+			{
+				return 4;
+			}
+
+			else
+				return 0;
 		}
 	}
 }

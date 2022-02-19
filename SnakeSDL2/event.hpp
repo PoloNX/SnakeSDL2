@@ -6,9 +6,9 @@
 class eventRequests
 {
 private:
-	SDL_Rect startR;
-	SDL_Rect exitR;
+
 public:
-	eventRequests(SDL_Rect startR, SDL_Rect exitR);
-	int eventMenu();
+	eventRequests();
+	int eventMenu(SDL_Rect startR, SDL_Rect exitR);
+	int eventSnake(int direction);
 };

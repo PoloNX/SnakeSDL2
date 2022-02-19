@@ -14,8 +14,8 @@ void menuRequests::printStartMenu()
 	utils1.printStringCenter("snake", 50, 0, false);
 	SDL_Rect startR = utils1.printStringCenter("Start", 250, -100, true);
 	SDL_Rect exitR = utils1.printStringCenter("Exit", 250, 100, true);
-	eventRequests event1(startR, exitR);
-	if (event1.eventMenu() == 2)
+	eventRequests event1;
+	if (event1.eventMenu(startR, exitR) == 2)
 	{
 		gameRequests game1(renderer, font);
 		game1.printSnake();
